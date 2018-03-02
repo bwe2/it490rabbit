@@ -1,4 +1,5 @@
 <?php
-$timezone =-5; //(GMT -5:00) ETC (U.S. & Canada)
-echo gmdate("Y/m/j H:i:s" , time() + 3600*($timezone+date("I")));
+$epoch = time();
+echo gmdate('r', $epoch);
+
 ?>
