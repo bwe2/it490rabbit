@@ -55,10 +55,9 @@ function sendLoginRequest(username,password)
 	}
 	request.send("data=login&username="+username+"&password="+password);
 }
-function HandleLoginResponse(response)
-{
-	var text = JSON.parse(response);
-	document.getElementById("output").innerHTML = "response: "+text+"<p>";
+function registerPage(){
+	window.location.href='Register.html';
+	
 }
 </script>
 
