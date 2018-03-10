@@ -1,6 +1,7 @@
 <?php
 include("testRabbitMQClient.php");
 include("log.php");
+include("DBFunction.php.inc")
 //if post message is not set
 if (!isset($_POST))
 {
