@@ -5,7 +5,7 @@ include("log.php");
 if (!isset($_POST))
 {
 	$msg = "NO POST MESSAGE SET";
-	log($msg);//write to log file
+	writelog($msg);//write to log file
 	echo json_encode($msg);
 	exit(0);
 }
@@ -29,7 +29,7 @@ switch ($postRequest["data"])
 	
 }
 //write to log file
-log(json_encode($response));
+writelog(json_encode($response));
 //turn the response into a JSON object
 echo json_encode($response);
 exit(0);
