@@ -7,11 +7,12 @@
 
 <b><center> Welcome!!! This is the Car Recall Form Page.</center>
   <body background="car2.jpeg" style=" background-size:100p;width:100%;">
-    <p><a href="./Login.html">Login</a>  |  <a href="./status.html">Status</a> | <a href="./Registration.html">Registration</a> </p>
-
-  <form action = "Login.php" method = "post">
-  <form onsubmit="alert('Thank you for submitting')">
-    <div class="field">
+   
+	<!-- <p><a href="./Login.html">Login</a>  |  <a href="./status.html">Status</a> | <a href="./Registration.html">Registration</a> </p>
+	<form action = "Login.php" method = "post"> -->
+	  
+  <form>
+    <div class="field" id = "field">
       <br>
 
 
@@ -26,17 +27,18 @@
     <input type="password" name="password" id = "password" placeholder="Please Enter Password" style="margin-left:7.3em"/></input>
     </div>
     <br>
-<button type="submit" name = "submit">Submit</button>
-<button type="reset">Reset</button>
+<button type="submit" name = "submit" onclick ="submitLogin()">Submit</button>
+<button type="button" onclick="RegisterPage()">Register</button>
 </form>
       <script>
 function submitLogin()
 {
 	var uname = document.getElementById("username").value;
 	var pword = document.getElementById("password").value;
-	document.getElementById("output").innerHTML = "username: " + username + "<p>password: "+password+"<p>";	
-	sendLoginRequest(username,password);
+	document.getElementById("field").innerHTML = "username: " + username + "<p>password: "+password+"<p>";	
+	sendLoginRequest(uname,pword);
 	return 0;
+	
 }
 
 function sendLoginRequest(username,password)
@@ -53,10 +55,9 @@ function sendLoginRequest(username,password)
 	}
 	request.send("data=login&username="+username+"&password="+password);
 }
-function HandleLoginResponse(response)
-{
-	var text = JSON.parse(response);
-	document.getElementById("output").innerHTML = "response: "+text+"<p>";
+function registerPage(){
+	window.location.href='Register.html';
+	
 }
 </script>
 
