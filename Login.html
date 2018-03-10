@@ -55,6 +55,15 @@ function sendLoginRequest(username,password)
 	}
 	request.send("data=login&username="+username+"&password="+password);
 }
+	      function HandleLoginResponse(response)
+{
+	var obj = JSON.parse(response);
+	if (obj["status"] == true){
+		alert("Correct Username and Password!");
+	}
+	else
+		alert("incorrect username or password");
+}
 function registerPage(){
 	window.location.href='Register.html';
 	
