@@ -13,5 +13,21 @@ public function __construct(){
 	}
 	echo "correctly connected to the database".PHP_EOL;
 }
+	public function validateUser($username,$password)
+{
+	$un = $this->db->real_escape_string($username);
+	$pw = $this->db->real_escape_string($password);
+	$query = "select * from users where username = '$un';";
+	$result = $this->db->query($query);
+	while ($row = $result->fetch_assoc())
+	{
+		if ($row["password"] == $pw)
+		{
+			// I have a match
+			return true;
+		}
+	}
+	return false;
+}
 }
 ?>
