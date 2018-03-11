@@ -41,7 +41,7 @@ function submitLogin()
 	
 }
 
-function sendLoginRequest(Username,Password)
+function sendLoginRequest(username,password)
 {
 	var request = new XMLHttpRequest();
 	request.open("POST","HandleRequests.php",true);
@@ -53,7 +53,7 @@ function sendLoginRequest(Username,Password)
 			HandleLoginResponse(this.responseText);
 		}
 	}
-	request.send("data=login&username="+Username+"&password="+Password);
+	request.send("data=login&username="+username+"&password="+password);
 }
 	      function HandleLoginResponse(response)
 {
