@@ -16,16 +16,16 @@ public function __construct(){
 public function validateLogin($username , $password){
 	$un = $this->connectdb->real_escape_string($username);
 	$pw = $this->connectdb->real_escape_string($password);
-	$statement = "select * from auth where username = '$un';";
+	$statement = "select * from auth where Username = '$un';";
 	$response = $this->connectdb->query($statement);
 	
 	While($row = $response->fetch_assoc()){
 		echo "checking password for $username".PHP_EOL;
-		if (password_verify($password, $row["password"])){
+		if (password_verify($password, $row["Password"])){
 			echo "passwords match for $username".PHP_EOL;
 			return 1;
 		}
-		echo "passwords do not match for $usename".PHP_EOL;
+		echo "passwords do not match for $username".PHP_EOL;
 }
 	return 0;
 	
