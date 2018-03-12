@@ -3,6 +3,8 @@ include("testRabbitMQClient.php");
 include("log.php");
 include("DBFunction.php.inc")
 //if post message is not set
+	
+echo "client received response one: ".PHP_EOL;
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 if (!isset($_POST))
 {
@@ -13,6 +15,8 @@ if (!isset($_POST))
 }
 $postRequest = $_POST;
 $response = "unsupported request type"; //default response
+
+echo "client received response: two ".PHP_EOL;
 switch ($postRequest["data"])
 {
 	case "login":
@@ -34,5 +38,7 @@ switch ($postRequest["data"])
 writelog(json_encode($response));
 //turn the response into a JSON object
 echo json_encode($response);
+
+echo "client received response: three ".PHP_EOL;
 exit(0);
 ?>
