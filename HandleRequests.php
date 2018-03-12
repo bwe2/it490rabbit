@@ -3,7 +3,11 @@ include("testRabbitMQClient.php");
 include("log.php");
 include("DBFunction.php.inc")
 //if post message is not set
-	
+	$request = array();
+
+
+$request['username'] = $_POST['username'];
+$request['password'] = $_POST['password'];
 echo "client received response one: ".PHP_EOL;
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 if (!isset($_POST))
