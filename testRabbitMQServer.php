@@ -6,7 +6,7 @@ require_once('rabbitMQLib.inc');
 require_once('DBFunction.php.inc');
 echo "Server Started".PHP_EOL;
 
-function doLogin($username,$password)
+//function doLogin($username,$password)
 {
     // lookup username in databas
     // check password
@@ -35,8 +35,8 @@ switch ($request['data']){
 	return array("returnCode" => '0', 'message'=>"Server received request and processed");
 return $response;
 
-}
+//}
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
-$server->process_requests('requestProcessor');
+//$server->process_requests('requestProcessor');
 exit();
 ?>
