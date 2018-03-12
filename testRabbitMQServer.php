@@ -11,10 +11,15 @@ echo "Server Started".PHP_EOL;
 function requestProcessor($request){
 
 echo "received request".PHP_EOL;
+	var_dump($request);
+if(!isser($request['data'])){
+	return "ERROR: unsupported message type";
+}
 switch ($request['data']){
 	case "login":
 		$client = new rabbitMQClient("testRabbitMQDB.ini","testServer");
 		$response = $client->send_request($request);
+		return doLogin($request['username'],$request['password']);
 	break;
 	
 	case "register":
@@ -22,6 +27,7 @@ switch ($request['data']){
                 $response = $client->send_request($request);
 	break;
 	}
+	return array("returnCode => '0', 'message'=>"Server received request and processed");
 return $response;
 
 }
