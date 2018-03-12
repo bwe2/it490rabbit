@@ -32,7 +32,7 @@ function requestProcessor($request)
   switch ($request['data'])
   {
     case "login":
-      $status = doLogin($request['Username'],$request['Password']);
+      $status = doLogin($request['username'],$request['password']);
       break;
     case "register":
       $status = doRegister($request['username'],$request['password'],$request['email']);
