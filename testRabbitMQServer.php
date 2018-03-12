@@ -6,8 +6,13 @@ require_once('rabbitMQLib.inc');
 require_once('DBFunction.php.inc');
 echo "Server Started".PHP_EOL;
 
-
-
+function doLogin($username,$password)
+{
+    // lookup username in databas
+    // check password
+    return true;
+    //return false if not valid
+}
 function requestProcessor($request){
 
 echo "received request".PHP_EOL;
@@ -27,7 +32,7 @@ switch ($request['data']){
                 $response = $client->send_request($request);
 	break;
 	}
-	return array("returnCode => '0', 'message'=>"Server received request and processed");
+	return array("returnCode" => '0', 'message'=>"Server received request and processed");
 return $response;
 
 }
