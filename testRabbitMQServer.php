@@ -17,7 +17,7 @@ function requestProcessor($request){
 
 echo "received request".PHP_EOL;
 	var_dump($request);
-if(!isser($request['data'])){
+if(!isset($request['data'])){
 	return "ERROR: unsupported message type";
 }
 switch ($request['data']){
