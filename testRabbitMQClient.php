@@ -12,10 +12,10 @@ if (isset($argv[1]))
 }
 else
 {
-  $msg = "client";
+  $msg = "test message";
 }
   $request = array();
-$request['data'] = "login";
+$request['type'] = "login";
 $request['username'] = "steve";
 $request['password'] = "password";
 $request['message'] = $msg;
@@ -26,5 +26,5 @@ echo "client recieved response: ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 echo $argv[0]." END".PHP_EOL;
-  return $response;
+ //return $response;
 //}
