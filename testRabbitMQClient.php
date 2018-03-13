@@ -22,7 +22,7 @@ $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 
-echo "client recieved response: ".PHP_EOL;
+echo "client recieved response:one ".PHP_EOL;
 print_r($response);
 echo "\n\n";
 echo $argv[0]." END".PHP_EOL;
