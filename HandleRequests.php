@@ -2,13 +2,13 @@
 include("testRabbitMQClient.php");
 
 //include("log.php");
-//require_once('DBFunction.php.inc')
+require_once('DBFunction.php.inc')
 //require_once('path.inc');
 //require_once('get_host_info.inc');
 //require_once('rabbitMQLib.inc');
 //$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 function doLogin($username,$password){
-	$sconnect = new ConnectDB("it490');
+	$sconnect = new ConnectDB("it490");
 	return $sconnect->validateLogin($username,$password);
 	}
 if (!isset($_POST))
@@ -16,6 +16,7 @@ if (!isset($_POST))
 	$msg = "NO POST MESSAGE SET";
 	writelog($msg);//write to log file
 	echo json_encode($msg);
+	echo "niceone";
 	exit(0);
 }
 $postRequest = $_POST;
