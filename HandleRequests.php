@@ -1,10 +1,10 @@
 <?php
 include("testRabbitMQClient.php");
 
-include("log.php");
-require_once('DBFunction.php.inc')
-require_once('path.inc');
-require_once('get_host_info.inc');
+//include("log.php");
+//require_once('DBFunction.php.inc')
+//require_once('path.inc');
+//require_once('get_host_info.inc');
 //require_once('rabbitMQLib.inc');
 //$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 function doLogin($username,$password){
