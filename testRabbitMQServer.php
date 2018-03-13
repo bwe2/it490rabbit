@@ -24,9 +24,6 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "login":
-$client = new rabbitMQClient("testRabbitMQDB.ini","testServer");
-		//send data to database and store response
-$response = $client->send_request($request);
       return doLogin($request['username'],$request['password']);
     case "validate_session":
       return doValidate($request['sessionId']);
