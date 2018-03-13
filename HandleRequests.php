@@ -1,6 +1,6 @@
 <?php
 include("testRabbitMQClient.php");
-
+/*
 //include("log.php");
 require_once("DBFunction.php.inc")
 //require_once("path.inc");
@@ -47,4 +47,5 @@ echo json_encode($response);
 
 echo "client received response: three ".PHP_EOL;
 exit(0);
+*/
 ?>
