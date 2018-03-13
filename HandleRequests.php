@@ -8,7 +8,7 @@ require_once("DBFunction.php.inc")
 //require_once("rabbitMQLib.inc");
 //$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 function doLogin($username,$password){
-	$sconnect = new ConnectDB("it490");
+	$sconnect = new ConnectDB("itclass");
 	return $sconnect->validateLogin($username,$password);
 	}
 if (!isset($_POST))
