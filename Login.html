@@ -52,7 +52,7 @@ function sendLoginRequest(username,password)
 			HandleLoginResponse(this.responseText);
 		}
 	}
-	request.send("data=login&username="+username+"&password="+password);
+	request.send("type=login&username="+username+"&password="+password);
 }
 	      function HandleLoginResponse(response)
 {
