@@ -15,9 +15,9 @@ else
   $msg = "test message";
 }
   $request = array();
-$request['type'] = $_POST['type'];
-$request['username'] = $_POST['username'];
-$request['password'] = $_POST['password'];
+$request['type'] = "Login";
+$request['username'] = "test";
+$request['password'] = "test";
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
