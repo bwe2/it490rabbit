@@ -1,13 +1,19 @@
 <?php
 include("testRabbitMQClient.php");
 include("log.php");
-include("DBFunction.php.inc")
+require_once('DBFunction.php.inc')
+require_once('path.inc');
+require_once('get_host_info.inc');
+require_once('rabbitMQLib.inc');
 //if post message is not set
 	$request = array();
 
 
 $request['username'] = $_POST['username'];
 $request['password'] = $_POST['password'];
+$response = createClient($request);
+$password = $_POST['password'];
+
 echo "client received response one: ".PHP_EOL;
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 if (!isset($_POST))
