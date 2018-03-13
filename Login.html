@@ -56,7 +56,7 @@ function sendLoginRequest(username,password)
 }
 	      function HandleLoginResponse(response)
 {
-	var obj = JSON.parse(response);
+	var text = JSON.parse(response);
 	if (obj["status"] == true){
 		alert("Correct Username and Password!");
 	}
