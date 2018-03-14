@@ -92,11 +92,12 @@ function submitLogin()
 {
 	var uname = document.getElementById("username").value;
 	var pword = document.getElementById("password").value;
-	sendLoginRequest(uname,pword);
-	return 0;
+	 var message = "type=login&user=" + uname + "&pass=" + pword;
+	sendLoginRequest(message);
+	//return 0;
 	
 }
-function sendLoginRequest(username,password)
+function sendLoginRequest(message)
 {
 	var request = new XMLHttpRequest();
 	request.open("POST","HandleRequests.php",true);
@@ -108,7 +109,8 @@ function sendLoginRequest(username,password)
 			HandleLoginResponse(this.responseText);
 		}
 	}
-	request.send("type=login&username="+username+"&password="+password);
+	request.send(message);
+	/request.send("type=login&username="+username+"&password="+password);
 }
 	      function HandleLoginResponse(response)
 {
