@@ -14,8 +14,8 @@ public function __construct($database){
 	echo "correctly connected to the database".PHP_EOL;
 }
 public function validateLogin($username,$password){
-	$un = $this->connectdb->real_escape_string($username);
-	$pw = $this->connectdb->real_escape_string($password);
+	$un = $this->db->real_escape_string($username);
+	$pw = $this->db->real_escape_string($password);
 	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
 	$response = array();
