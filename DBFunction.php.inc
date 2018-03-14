@@ -23,10 +23,12 @@ public function validateLogin($username,$password){
 		//$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
 		if ($row["password"] == $pw){
-			echo "passwords match for $username".PHP_EOL;
+			echo "$username your password matches!".PHP_EOL;
 			//return true;
 		}
-		echo "passwords do not match for $username".PHP_EOL;
+		else {
+		echo "The password for $username does not match asshole!".PHP_EOL;
+		}
 }
 	//return false;
 	
