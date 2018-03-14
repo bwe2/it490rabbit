@@ -27,7 +27,7 @@ public function validateLogin($username,$password){
 			//return true;
 		}
 		else {
-		echo "The password for $username does not match asshole!".PHP_EOL;
+		echo "The password for $username does not match, you lying asshole!".PHP_EOL;
 		}
 }
 	//return false;
