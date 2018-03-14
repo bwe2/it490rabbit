@@ -18,16 +18,17 @@ public function validateLogin($username,$password){
 	$pw = $this->db->real_escape_string($password);
 	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
-	$response = array();
+	//$response = array();
 	While($row = $queryResponse->fetch_assoc()){
 		//$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
-		if (password_verify($pw, $row["password"])){
+		if (password_verify($row["password"] ==$pw)){
 			echo "passwords match for $username".PHP_EOL;
+			//return true;
 		}
 		echo "passwords do not match for $username".PHP_EOL;
 }
-	//return response;
+	//return false;
 	
 }
 }
