@@ -85,5 +85,42 @@
 			</div>
 		</div>
 	</div>
+	<script>
+function submitLogin()
+{
+	var uname = document.getElementById("username").value;
+	var pword = document.getElementById("password").value;
+	sendLoginRequest(uname,pword);
+	return 0;
+	
+}
+function sendLoginRequest(username,password)
+{
+	var request = new XMLHttpRequest();
+	request.open("POST","HandleRequests.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	request.onreadystatechange = function ()
+	{
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+		}
+	}
+	request.send("type=login&username="+username+"&password="+password);
+}
+	      function HandleLoginResponse(response)
+{
+	var text = JSON.parse(response);
+	if (obj["status"] == true){
+		alert("Correct Username and Password!");
+	}
+	else
+		alert("incorrect username or password");
+}
+function registerPage(){
+	window.location.href='Register.html';
+	
+}
+</script>
 	</body>
 </html>
