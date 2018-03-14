@@ -27,7 +27,7 @@ public function validateLogin($username,$password){
 		}
 		echo "passwords do not match for $username".PHP_EOL;
 }
-	return response;
+	//return response;
 	
 }
 }
