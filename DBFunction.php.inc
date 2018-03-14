@@ -20,7 +20,7 @@ public function validateLogin($username,$password){
 	$queryResponse = $this->db->query($query);
 	$response = array();
 	While($row = $queryResponse->fetch_assoc()){
-		$response[] = $row;
+		//$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
 		if (password_verify($pw, $row["password"])){
 			echo "passwords match for $username".PHP_EOL;
