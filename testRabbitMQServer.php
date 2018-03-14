@@ -8,8 +8,8 @@ echo "Server Started".PHP_EOL;
 
 function doLogin($username,$password)
 {
-    // lookup username in databas
-    // check password
+    $sconnect = new ConnectDB("itclass");
+return $sconnect->validateLogin($username,$password);
     return true;
     //return false if not valid
 }
