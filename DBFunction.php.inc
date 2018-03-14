@@ -16,7 +16,7 @@ public function __construct($database){
 public function validateLogin($username,$password){
 	$un = $this->connectdb->real_escape_string($username);
 	$pw = $this->connectdb->real_escape_string($password);
-	$query = "select * from students where username = '$un';";
+	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
 	$response = array();
 	While($row = $queryResponse->fetch_assoc()){
