@@ -23,13 +23,20 @@ $postRequest = $_POST;
 $response = "unsupported request type"; //default response
 
 echo "client received response: two ".PHP_EOL;
-switch ($postRequest["type"])
+switch ($_POST["type"])
 {
 	case "login":
-		$password = $postRequest["password"];
+		$login = doLogin($_POST["username"],$_POST["password"]);
+		if($login){
+			$response = "successful";
+		}
+		else{
+			$response = "failed";
+		}
+		//$password = $postRequest["password"];
 		//$hashedPass = sha1($password);//hash the pass
 		//$postRequest["password"] = $hashedPass;
-		$response = createClient($postRequest);
+		//$response = createClient($postRequest);
 	break;
 	case "register":
 		$password = $postRequest["password"];
