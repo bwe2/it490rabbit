@@ -6,27 +6,26 @@ require_once('rabbitMQLib.inc');
 require_once('DBFunction.php.inc');
 echo "Server Started".PHP_EOL;
 
-function doLogin($username,$password)
-{
+function doLogin($username,$password){
     $sconnect = new ConnectDB("itclass");
 return $sconnect->validateLogin($username,$password);
     return true;
     //return false if not valid
 }
-function requestProcessor($request)
-{
+
+function requestProcessor($request){
   echo "received request".PHP_EOL;
   var_dump($request);
-  if(!isset($request['type']))
-  {
+  if(!isset($request['type'])){
     return "ERROR: unsupported message type";
   }
-  switch ($request['type'])
-  {
+  switch ($request['type']){
     case "login":
       return doLogin($request['username'],$request['password']);
+	break;
     case "validate_session":
       return doValidate($request['sessionId']);
+	break;
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
