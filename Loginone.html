@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-          <title>Login</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  
+	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 <!------ Include the above in your HEAD tag ---------->
 	
-	</head>
+</head>
 	<b><center> Welcome!!! This is the Car Recall Form Page.</center>
 	<body>
 
-
- <form action= "HandleRequests.php" method = "post">
 <div class="container">
     	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
@@ -21,8 +19,9 @@
 			<div class="col-xs-6">
 			<a href="#" class="active" id="login-form-link">Login</a>
 			</div>
+	<form>
 		<div class="col-xs-6">
-		<a href="#" id="register-form-link" onclick="RegisterPage()">Register</a>
+		<a href="#" id="register-form-link">Register</a> <!--onclick="RegisterPage()-->
 			</div>
 		</div>
 			<hr>
@@ -30,17 +29,17 @@
 	<div class="panel-body">
 		<div class="row">
 		<div class="col-lg-12">
-		<form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+		<!--<form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;"> -->
 		<div class="form-group">
 	<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 		</div>
 		<div class="form-group">
 	<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 		</div>
-		<div class="form-group text-center">
+	<!--	<div class="form-group text-center">
 	<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
 		<label for="remember"> Remember Me</label>
-		</div>
+		</div> -->
 		<div class="form-group">
 		<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
@@ -52,7 +51,7 @@
 		<div class="row">
 		<div class="col-lg-12">
 		<div class="text-center">
-	<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+	<!--<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a> -->
 			</div>
 		</div>
 	</div>
@@ -93,9 +92,9 @@
 });
 function submitLogin()
 {
-	var uname = document.getElementById("username").value;
-	var pword = document.getElementById("password").value;
-	 var message = "type=login&user=" + uname + "&pass=" + pword;
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	 var message = "type=login&username=" + username + "&password=" + password;
 	sendLoginRequest(message);
 	//return 0;
 	
@@ -120,12 +119,13 @@ function HandleLoginResponse(response){
       response = response.replace(/\s/g, "");
       switch (response) {
         case "nice":
-          window.location.href= 'cars.html';
+          window.location.reaplace("cars.html");
           break;
         case "notnice":
           text = "Incorrect credentials";
-          document.getElementById("loginFormError").innerHTML = text;
           break;
+	      default:
+		      alert(response);
 	//var text = JSON.parse(response);
 	//if (obj["status"] == true){
 	//	alert("Correct Username and Password!");
@@ -138,5 +138,8 @@ function registerPage(){
 	
 }
 </script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</body>
 </html>
