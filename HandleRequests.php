@@ -1,6 +1,6 @@
 <?php
-include('log.php');
-require_once('DBFunction.php.inc')
+//include('log.php');
+//require_once('DBFunction.php.inc');
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
@@ -20,7 +20,7 @@ $response = "unsupported request type"; //default response
 echo "client received response: two ".PHP_EOL;
 switch ($postRequest["type"]){
 	case "login":
-		$request = array()
+		$request = array();
 		$request['type'] = $postRequest["type"];
 		$request['username'] = $postRequest["username"];
 		$request['password'] = $postRequest["password"];
