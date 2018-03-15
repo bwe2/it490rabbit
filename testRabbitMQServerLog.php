@@ -4,6 +4,8 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('logRec.inc');
+echo "Server Started".PHP_EOL;
+
 function requestProcessor($request)
 {
   switch ($request['type']) {
