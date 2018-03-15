@@ -1,8 +1,8 @@
 <?php
 
-/*
-include("testRabbitMQClient.php");
 
+include("testRabbitMQClient.php");
+/*
 $request = array();
 
 
