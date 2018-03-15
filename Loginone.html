@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">  
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -9,7 +10,9 @@
 </head>
 	<b><center> Welcome!!! This is the Car Recall Form Page.</center>
 	<body>
-
+<div id = "output">
+	status<p>
+	</div>
 <div class="container">
     	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
@@ -100,13 +103,11 @@ function submitLogin()
 	//return 0;
 	
 }
-function sendLoginRequest(message)
-{
+function sendLoginRequest(message){
 	var request = new XMLHttpRequest();
 	request.open("POST","HandleRequests.php",true);
 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	request.onreadystatechange = function ()
-	{
+	request.onreadystatechange = function (){
 		if ((this.readyState == 4)&&(this.status == 200))
 		{
 			HandleLoginResponse(this.responseText);
@@ -116,18 +117,20 @@ function sendLoginRequest(message)
 	//request.send("type=login&username="+username+"&password="+password);
 }
 function HandleLoginResponse(response){
-	var text;
+	var text = JSON.parse(response);
+	document.getElementById("output").innerHTML = "response: "+text+"<p>";
+	//var text;
       response = response.replace(/\s/g, "");
       switch (response) {
         case "nice":
-          window.location.reaplace("cars.html");
+          window.location.replace("cars.html");
           break;
         case "notnice":
           text = "Incorrect credentials";
           break;
 	      default:
 		      alert(response);
-	//var text = JSON.parse(response);
+	
 	//if (obj["status"] == true){
 	//	alert("Correct Username and Password!");
 	}
