@@ -110,10 +110,9 @@ function sendLoginRequest(message)
 		}
 	}
 	request.send(message);
-	/request.send("type=login&username="+username+"&password="+password);
+	//request.send("type=login&username="+username+"&password="+password);
 }
-	      function HandleLoginResponse(response)
-{
+function HandleLoginResponse(response){
 	var text;
       response = response.replace(/\s/g, "");
       switch (response) {
