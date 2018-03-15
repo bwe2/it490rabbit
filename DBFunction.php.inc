@@ -16,6 +16,7 @@ public function __construct($database){
 public function validateLogin($username,$password){
 	$un = $this->db->real_escape_string($username);
 	$pw = $this->db->real_escape_string($password);
+	$returnarray = array();
 	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
 	//$response = array();
@@ -24,11 +25,13 @@ public function validateLogin($username,$password){
 		echo "checking password for $username".PHP_EOL;
 		if ($row["password"] == $pw){
 			echo "$username your password matches!".PHP_EOL;
-			return true;
+			$returnarray['msg'] = "nice";
 		}
 		else {
 		echo "The password for $username does not match, you lying asshole!".PHP_EOL;
+			$returnarray['msg'] = "notnice";
 		}
+		return ($returnarray);
 }
 	//return false;
 	
