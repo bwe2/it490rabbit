@@ -120,7 +120,7 @@ function HandleLoginResponse(response){
       response = response.replace(/\s/g, "");
       switch (response) {
         case "nice":
-          window.location.replace("cars.html");
+          window.location.href= 'cars.html';
           break;
         case "notnice":
           text = "Incorrect credentials";
