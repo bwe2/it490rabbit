@@ -28,7 +28,7 @@ public function validateLogin($username,$password){
 			$returnarray['msg'] = "nice";
 		}
 		else {
-		echo "The password for $username does not match, you lying asshole!".PHP_EOL;
+		echo "The password for $username does not match!".PHP_EOL;
 			$returnarray['msg'] = "notnice";
 		}
 		return ($returnarray);
