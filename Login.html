@@ -8,9 +8,9 @@
 <b><center> Welcome!!! This is the Car Recall Form Page.</center>
   <body background="car2.jpeg" style=" background-size:100p;width:100%;">
    
-	 <p><a href="./Login.html">login</a>  |  <a href="./status.html">Status</a> | <a href="./Registration.html">Registration</a> </p>
+	<p><a href="./Loginone.html">login</a>  |  <a href="./status.html">Status</a> | <a href="./Registration.html">Registration</a> </p>
 	
-	<form action= "HandleRequests.php" method = "post">
+	<form action= "HandleRequests.php" method = "post"> 
   <form>
     <div class="field" id = "field">
       <br>
@@ -60,7 +60,7 @@ function sendLoginRequest(username,password)
       response = response.replace(/\s/g, "");
       switch (response) {
         case "nice":
-          window.location.replace("discover.php");
+          window.location.replace("cars.html");
           break;
         case "notnice":
           text = "Incorrect credentials";
