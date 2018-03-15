@@ -21,9 +21,9 @@ echo "client received response: two ".PHP_EOL;
 switch ($postRequest["type"]){
 	case "login":
 		$request = array();
-		$request['type'] = $postRequest["type"];
-		$request['username'] = $postRequest["username"];
-		$request['password'] = $postRequest["password"];
+		$request['type'] = $postRequest['type'];
+		$request['username'] = $postRequest['username'];
+		$request['password'] = $postRequest['password'];
 		$response = $client->send_request($request);
 		$returnarray =json_decode($response, true);
 		$response =$returnarray['message'];
