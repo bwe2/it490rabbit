@@ -14,6 +14,9 @@ if (!isset($_POST)){
 	echo "niceone";
 	exit(0);
 }
+else {
+echo "HandleRequests".PHP_EOL;
+}
 $postRequest = $_POST;
 $response = "unsupported request type"; //default response
 
@@ -21,9 +24,9 @@ echo "client received response: two ".PHP_EOL;
 switch ($postRequest["type"]){
 	case "login":
 		$request = array();
-		$request['type'] = $postRequest["type"];
-		$request['username'] = $postRequest["username"];
-		$request['password'] = $postRequest["password"];
+		$request['type'] = "login";
+		$request['username'] = $postRequest['username'];
+		$request['password'] = $postRequest['password'];
 		$response = $client->send_request($request);
 		$returnarray =json_decode($response, true);
 		$response =$returnarray['message'];
@@ -52,11 +55,11 @@ switch ($postRequest["type"]){
 }
 echo $response;
 //write to log file
-writelog(json_encode($response));
+logIt(json_encode($response));
 //turn the response into a JSON object
 echo json_encode($response);
 
-echo "client received response: three ".PHP_EOL;
+echo "client received response: three ";
 exit(0);
 /*
 function doLogin($username,$password){
