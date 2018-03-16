@@ -25,11 +25,11 @@ public function validateLogin($username,$password){
 		echo "checking password for $username".PHP_EOL;
 		if ($row["password"] == $pw){
 			echo "$username your password matches!".PHP_EOL;
-			$returnarray['msg'] = "nice";
+			$returnarray['message'] = "nice";
 		}
 		else {
 		echo "The password for $username does not match!".PHP_EOL;
-			$returnarray['msg'] = "notnice";
+			$returnarray['message'] = "notnice";
 		}
 		return ($returnarray);
 }
