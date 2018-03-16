@@ -8,10 +8,10 @@
 <b><center> Welcome!!! This is the Car Recall Form Page.</center>
   <body background="car2.jpeg" style=" background-size:100p;width:100%;">
    
-	<p><a href="./Loginone.html">login</a>  |  <a href="./status.html">Status</a> | <a href="./Registration.html">Registration</a> </p>
+	<!--<p><a href="./Loginone.html">login</a>  |  <a href="./status.html">Status</a> | <a href="./Registration.html">Registration</a> </p>
 	
-	<form action= "Loginone.php" method = "post"> 
-  <form>
+	<form action= "Loginone.php" method = "post"> -->
+  <:>
     <div class="field" id = "field">
       <br>
 
@@ -60,7 +60,7 @@ function HandleLoginResponse(response)
       response = response.replace(/\s/g, "");
       switch (response) {
         case "nice":
-          window.location.replace("cars.html");
+          window.location.replace("localhost/cars.html");
           break;
         case "notnice":
           text = "Incorrect credentials";
@@ -75,7 +75,7 @@ function HandleLoginResponse(response)
 		//alert("incorrect username or password");
 }
 function registerPage(){
-	window.location.href='Register.html';
+	window.location.replace=("localhost/Registration.html");
 	
 }
 </script>
