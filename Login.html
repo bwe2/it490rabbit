@@ -56,7 +56,7 @@ function sendLoginRequest(username,password)
 }
 function HandleLoginResponse(response)
 {
-	var text;
+	var text = JSON.parse(response);
       response = response.replace(/\s/g, "");
       switch (response) {
         case "nice":
