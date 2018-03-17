@@ -19,15 +19,15 @@
  
     <div class="field" style="margin-left:2em">
       <label>Username </label>
-      <input type="username" name="username" id = "username" placeholder="Please Enter Username" style="margin-left:7em"/></label>
+      <input type="username" name="username" id ="username" placeholder="Please Enter Username" style="margin-left:7em"/></label>
     </div>
 
     <div class="field" style="margin-left:2em">
     <label>Password </label>
-    <input type="password" name="password" id = "password" placeholder="Please Enter Password" style="margin-left:7.3em"/></input>
+    <input type="password" name="password" id ="password" placeholder="Please Enter Password" style="margin-left:7.3em"/></input>
     </div>
     <br>
-<button type="submit" name = "submit" onclick ="submitLoginRequest()">Submit</button>
+<button type="submit" name ="submit" onclick ="submitLoginRequest()">Submit</button>
 <button type="button" onclick="registerPage()">Register</button>
 </form>
       <script type="text/javascript">
@@ -36,7 +36,7 @@ function submitLogin()
 	var uname = document.getElementById("username").value;
 	var pword = document.getElementById("password").value;
 	sendLoginRequest(uname,pword);
-	return 0;
+	
 	
 }
 
