@@ -30,6 +30,7 @@ public function validateLogin($username,$password){
 		else {
 		echo "The password for $username does not match!".PHP_EOL;
 			$returnarray['message'] = "notnice";
+			errorSend("DB Connect", 3, "Cannot connect to db server");
 		}
 		return json_encode($returnarray);
 }
