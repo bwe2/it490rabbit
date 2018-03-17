@@ -31,7 +31,7 @@ public function validateLogin($username,$password){
 		echo "The password for $username does not match!".PHP_EOL;
 			$returnarray['message'] = "notnice";
 		}
-		return ($returnarray);
+		return json_encode($returnarray);
 }
 	//return false;
 	
