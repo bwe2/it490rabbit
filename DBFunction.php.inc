@@ -5,7 +5,7 @@ class ConnectDB
 private $db;
 
 public function __construct($database){
-	$this->db = new mysqli("localhost","root","georgia1234","$database");
+	$this->db = new mysqli("localhost","root","georgia1234",$database);
 	if ($this->db->connect_errno !=0)
 	{
 		echo "Error connecting to database: ".$this->db->connect_error.PHP_EOL;
