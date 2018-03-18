@@ -4,12 +4,12 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 //session_start();
-$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 function doLogin($username,$password)
 {
 	$sconnect = new ConnectDB("itclass");
 	return $sconnect->validateUser($username,$password);
 }
+$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 if (!isset($_POST)){
 	$msg = "NO POST MESSAGE SET";
@@ -28,8 +28,8 @@ switch ($postRequest["type"]){
 	case "login":
 		$request = array();
 		$request['type'] = $postRequest["type"];
-		$request['user'] = $postRequest["user"];
-		$request['pass'] = $postRequest["pass"];
+		$request['user'] = $postRequest["username"];
+		$request['pass'] = $postRequest["password"];
 		$response = $client->send_request($request);
 		$returnarray = json_decode($response, true);
 		$response = $returnarray['message'];
