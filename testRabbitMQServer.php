@@ -7,9 +7,9 @@ require_once('DBFunction.php.inc');
 require_once('logSend.inc');
 echo "Server Started".PHP_EOL;
 
-function doLogin($username,$password){
+function doLogin($user,$pass){
     $sconnect = new ConnectDB("itclass");
-return $sconnect->validateLogin($username,$password);
+return $sconnect->validateLogin($user,$pass);
     return true;
     //return false if not valid
 }
@@ -22,7 +22,7 @@ function requestProcessor($request){
   }
   switch ($request['type']){
     case "login":
-      return doLogin($request['username'],$request['password']);
+      return doLogin($request['user'],$request['pass']);
 	break;
     case "validate_session":
       return doValidate($request['sessionId']);
