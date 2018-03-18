@@ -30,9 +30,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function submitLogin() {
-            var user = document.getElementById("user").value;
-            var pass = document.getElementById("pass").value;
-            var message = "type=login&user=" + user + "&pass=" + pass;
+            var uname = document.getElementById("user").value;
+            var pword = document.getElementById("pass").value;
+            var message = "type=login&user=" + uname + "&pass=" + pword;
             sendLoginRequest(message);
 
 
@@ -56,15 +56,13 @@
 
         function sendLoginRequest(message) {
             var request = new XMLHttpRequest();
+            request.open("POST", "HandleRequests.php", true);
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             request.onreadystatechange = function() {
                 if ((this.readyState == 4) && (this.status == 200)) {
-                    document.getElementById("login").innerHTML =
-                        this.responseText;
                     HandleLoginResponse(this.responseText);
                 }
-            };
-            request.open("POST", "HandleRequests.php", true);
+            }
             request.send(message);
         }
 
