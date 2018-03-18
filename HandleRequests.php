@@ -4,11 +4,12 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 //session_start();
-function doLogin($user,$pass){
-	$sconnect = new ConnectDB("itclass");
-	return $sconnect->validateLogin($user,$pass);
-	}
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+function doLogin($username,$password)
+{
+	$sconnect = new ConnectDB("itclass");
+	return $sconnect->validateUser($username,$password);
+}
 
 if (!isset($_POST)){
 	$msg = "NO POST MESSAGE SET";
@@ -47,7 +48,7 @@ switch ($postRequest["type"]){
 		*/
 	break;
 	case "reg":
-		$password = $postRequest["pass"];
+		$password = $postRequest["password"];
 		$email = $postRequest["email"];
 		//$hashedPass = password_hash($password, PASSWORD_DEFAULT);//hash the pass
 		//$postRequest["password"] = $hashedPass;
@@ -58,4 +59,10 @@ switch ($postRequest["type"]){
 echo $response;
 echo "client received response: three ";
 exit(0);
+/*
+function doLogin($username,$password){
+	$sconnect = new ConnectDB("itclass");
+	return $sconnect->validateLogin($username,$password);
+	}
+*/
 ?>
