@@ -32,8 +32,8 @@
         function submitLogin() {
             var uname = document.getElementById("user").value;
             var pword = document.getElementById("pass").value;
-            var message = "type=login&user=" + uname + "&pass=" + pword;
-            sendLoginRequest(message);
+            //var message = "type=login&user=" + uname + "&pass=" + pword; 
+            sendLoginRequest(uname, pword);
 
 
         }
@@ -54,7 +54,7 @@
             }
         }
 
-        function sendLoginRequest(message) {
+        function sendLoginRequest(username, password) {
             var request = new XMLHttpRequest();
             request.open("POST", "HandleRequests.php", true);
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -63,7 +63,7 @@
                     HandleLoginResponse(this.responseText);
                 }
             }
-            request.send(message);
+            request.send("type=login&username=" + username + "&password=" + password);
         }
 
     </script>
