@@ -4,6 +4,10 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 //session_start();
+function doLogin($username,$password){
+	$sconnect = new ConnectDB("itclass");
+	return $sconnect->validateLogin($username,$password);
+	}
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 if (!isset($_POST)){
@@ -54,10 +58,4 @@ switch ($postRequest["type"]){
 echo $response;
 echo "client received response: three ";
 exit(0);
-/*
-function doLogin($username,$password){
-	$sconnect = new ConnectDB("itclass");
-	return $sconnect->validateLogin($username,$password);
-	}
-*/
 ?>
