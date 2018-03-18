@@ -10,14 +10,16 @@
 
 <body>
     <script src="Fake.css"></script>
-    <h3>Welcome to the car clam page!</h3>
+    <center>
+        <h3>Welcome to the car clam page!</h3>
+    </center>
     <div class="login-card">
         <div id="demo">
             <h1>Log-in</h1><br>
             <form>
                 <input type="text" name="user" id="user" placeholder="Username">
                 <input type="password" name="pass" id="pass" placeholder="Password">
-                <input type="submit" name="login" class="login login-submit" value="login" onclick="submitLogin()">
+                <input type="submit" name="login" id="login" class="login login-submit" value="login" onclick="submitLogin()">
             </form>
 
             <div class="login-help">
@@ -36,12 +38,28 @@
 
         }
 
+        function HandleLoginResponse(response) {
+            var text;
+            response = response.replace(/\s/g, "");
+            switch (response) {
+                case "nice":
+                    text = "Correct Credentials";
+                    window.location.replace("localhost/cars.html");
+                    break;
+                case "notnice":
+                    text = "Incorrect Credentials";
+                    break;
+                default:
+                    alert(response);
+            }
+        }
+
         function sendLoginRequest(message) {
             var request = new XMLHttpRequest();
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             request.onreadystatechange = function() {
                 if ((this.readyState == 4) && (this.status == 200)) {
-                    document.getElementById("demo").innerHTML =
+                    document.getElementById("login").innerHTML =
                         this.responseText;
                     HandleLoginResponse(this.responseText);
                 }
@@ -50,23 +68,8 @@
             request.send(message);
         }
 
-        function HandleLoginResponse(response) {
-            var text;
-            response = response.replace(/\s/g, "");
-            switch (response) {
-                case "nice":
-                    window.location.replace("localhost/cars.html");
-                    break;
-                case "notnice":
-                    text = "Incorrect credentials";
-                    document.getElementById("loginFormError").innerHTML = text;
-                    break;
-                default:
-                    alert(response);
-            }
-        }
-
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
 </html>
