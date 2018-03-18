@@ -9,7 +9,7 @@ echo "Server Started".PHP_EOL;
 
 function doLogin($user,$pass){
     $sconnect = new ConnectDB("itclass");
-return $sconnect->validateLogin($user,$pass);
+return $sconnect->validateLogin($username,$password);
     return true;
     //return false if not valid
 }
@@ -22,7 +22,7 @@ function requestProcessor($request){
   }
   switch ($request['type']){
     case "login":
-      return doLogin($request['user'],$request['pass']);
+      return doLogin($request['username'],$request['password']);
 	break;
     case "validate_session":
       return doValidate($request['sessionId']);
