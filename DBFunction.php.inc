@@ -5,7 +5,7 @@ class ConnectDB
 private $db;
 
 public function __construct($database){
-	$this->db = new mysqli("localhost","root","georgia","$database");
+	$this->db = new mysqli("localhost","root","georgia1234","$database");
 	if ($this->db->connect_errno !=0)
 	{
 		echo "Error connecting to database: ".$this->db->connect_error.PHP_EOL;
@@ -13,9 +13,9 @@ public function __construct($database){
 	}
 	echo "correctly connected to the database".PHP_EOL;
 }
-public function validateLogin($username,$password){
-	$un = $this->db->real_escape_string($username);
-	$pw = $this->db->real_escape_string($password);
+public function validateLogin($user,$pass){
+	$un = $this->db->real_escape_string($user);
+	$pw = $this->db->real_escape_string($pass);
 	$returnarray = array();
 	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
