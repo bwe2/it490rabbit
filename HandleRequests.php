@@ -7,7 +7,7 @@ require_once('rabbitMQLib.inc');
 function doLogin($username,$password)
 {
 	$sconnect = new ConnectDB("itclass");
-	return $sconnect->validateUser($username,$password);
+	return $sconnect->validateLogin($username,$password);
 }
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
