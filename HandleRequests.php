@@ -1,6 +1,5 @@
 <?php
-//include('log.php');
-//require_once('DBFunction.php.inc');
+require_once('DBFunction.php.inc');
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
@@ -9,7 +8,6 @@ $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
 if (!isset($_POST)){
 	$msg = "NO POST MESSAGE SET";
-	writelog($msg);//write to log file
 	echo json_encode($msg);
 	echo "niceone";
 	exit(0);
@@ -25,11 +23,11 @@ switch ($postRequest["type"]){
 	case "login":
 		$request = array();
 		$request['type'] = $postRequest["type"];
-		$request['username'] = $postRequest["username"];
-		$request['password'] = $postRequest["password"];
+		$request['user'] = $postRequest["user"];
+		$request['pass'] = $postRequest["pass"];
 		$response = $client->send_request($request);
 		$returnarray = json_decode($response, true);
-		$response =$returnarray['message'];
+		$response = $returnarray['message'];
 		/*
 		$login = doLogin($_POST["username"],$_POST["password"]);
 		if($login){
@@ -44,7 +42,7 @@ switch ($postRequest["type"]){
 		$response = createClient($postRequest);
 		*/
 	break;
-	case "register":
+	case "reg":
 		$password = $postRequest["password"];
 		$email = $postRequest["email"];
 		//$hashedPass = password_hash($password, PASSWORD_DEFAULT);//hash the pass
@@ -54,11 +52,6 @@ switch ($postRequest["type"]){
 	
 }
 echo $response;
-//write to log file
-logIt(json_encode($response));
-//turn the response into a JSON object
-echo json_encode($response);
-
 echo "client received response: three ";
 exit(0);
 /*
