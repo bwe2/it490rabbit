@@ -5,30 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the car calm page</title>
-    <link rel="stylesheet" href="Fake.css">
+    <link rel="stylesheet" type="text/css" href="Fake.css">
 </head>
 
 <body>
     <script src="Fake.css"></script>
     <h3>Welcome to the car clam page!</h3>
     <div class="login-card">
-        <h1>Log-in</h1><br>
-        <form>
-            <input type="text" name="user" id="user" placeholder="Username">
-            <input type="password" name="pass" id="pass" placeholder="Password">
-            <input type="submit" name="login" id="login" class="login login-submit" value="login" onclick="submitLogin()">
-        </form>
+        <div id="demo">
+            <h1>Log-in</h1><br>
+            <form>
+                <input type="text" name="user" id="user" placeholder="Username">
+                <input type="password" name="pass" id="pass" placeholder="Password">
+                <input type="submit" name="login" class="login login-submit" value="login" onclick="submitLogin()">
+            </form>
 
-        <div class="login-help">
-            <a href="FakeR.html">Register</a> • <a href="#">Forgot Password</a>
+            <div class="login-help">
+                <a href="FakeR.html">Register</a> • <a href="#">Forgot Password</a>
+            </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function submitLogin() {
             var user = document.getElementById("user").value;
             var pass = document.getElementById("pass").value;
-            var type = document.getElementById("login").value;
-            var message = "type=login" + login "&user=" + user + "&pass=" + pass;
+            var message = "type=login&user=" + user + "&pass=" + pass;
             sendLoginRequest(message);
 
 
@@ -48,6 +50,8 @@
 
         function HandleLoginResponse(response) {
             var text;
+            document.getElementById("demo").innerHTML =
+                this.responseText;
             response = response.replace(/\s/g, "");
             switch (response) {
                 case "nice":
