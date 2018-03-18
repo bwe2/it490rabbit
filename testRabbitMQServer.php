@@ -7,7 +7,7 @@ require_once('DBFunction.php.inc');
 require_once('logSend.inc');
 echo "Server Started".PHP_EOL;
 
-function doLogin($user,$pass){
+function doLogin($username,$password){
     $sconnect = new ConnectDB("itclass");
 return $sconnect->validateLogin($username,$password);
     return true;
