@@ -4,9 +4,9 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 //session_start();
-function doLogin($username,$password){
+function doLogin($user,$pass){
 	$sconnect = new ConnectDB("itclass");
-	return $sconnect->validateLogin($username,$password);
+	return $sconnect->validateLogin($user,$pass);
 	}
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
 
@@ -47,7 +47,7 @@ switch ($postRequest["type"]){
 		*/
 	break;
 	case "reg":
-		$password = $postRequest["password"];
+		$password = $postRequest["pass"];
 		$email = $postRequest["email"];
 		//$hashedPass = password_hash($password, PASSWORD_DEFAULT);//hash the pass
 		//$postRequest["password"] = $hashedPass;
