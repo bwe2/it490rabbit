@@ -13,18 +13,18 @@ public function __construct($database){
 	}
 	echo "correctly connected to the database".PHP_EOL;
 }
-public function validateLogin($user,$pass){
-	$un = $this->db->real_escape_string($user);
-	$pw = $this->db->real_escape_string($pass);
+public function validateLogin($username,$password){
+	$un = $this->db->real_escape_string($username);
+	$pw = $this->db->real_escape_string($password);
 	$returnarray = array();
 	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
 	//$response = array();
 	While($row = $queryResponse->fetch_assoc()){
 		//$response[] = $row;
-		echo "checking password for $user".PHP_EOL;
+		echo "checking password for $username".PHP_EOL;
 		if ($row["password"] == $pw){
-			echo "$user your password matches!".PHP_EOL;
+			echo "$username your password matches!".PHP_EOL;
 			$returnarray['message'] = "nice";
 		}
 		else {
