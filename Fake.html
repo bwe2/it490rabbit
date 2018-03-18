@@ -15,7 +15,7 @@
         <form>
             <input type="text" name="user" id="user" placeholder="Username">
             <input type="password" name="pass" id="pass" placeholder="Password">
-            <input type="submit" name="login" class="login login-submit" value="login" onclick="submitLogin()">
+            <input type="submit" name="login" id="login" class="login login-submit" value="login" onclick="submitLogin()">
         </form>
 
         <div class="login-help">
@@ -26,7 +26,8 @@
         function submitLogin() {
             var user = document.getElementById("user").value;
             var pass = document.getElementById("pass").value;
-            var message = "type=login&user=" + user + "&pass=" + pass;
+            var type = document.getElementById("login").value;
+            var message = "type=login" + login "&user=" + user + "&pass=" + pass;
             sendLoginRequest(message);
 
 
