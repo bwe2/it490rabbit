@@ -23,7 +23,7 @@ public function validateLogin($username,$password){
 	while($row = $queryResponse->fetch_assoc()){
 		//$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
-		//if ($row["password"] == $pw){
+		if ($row["password"] == $pw){
 			echo "$username your password matches!".PHP_EOL;
 			$returnarray['message'] = "nice";
 		}
