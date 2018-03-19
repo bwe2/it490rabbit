@@ -19,10 +19,10 @@ public function validateLogin($username,$password){
 	$returnarray = array();
 	$query = "select * from student where username = '$un'and password = '$pw';";
 	$queryResponse = $this->db->query($query);
-	$response = array();
-	if ($row = $queryResponse->fetch_assoc()){
+	//$response = array();
+	while($row = $queryResponse->fetch_assoc()){
 		//$response[] = $row;
-		//echo "checking password for $username".PHP_EOL;
+		echo "checking password for $username".PHP_EOL;
 		//if ($row["password"] == $pw){
 			echo "$username your password matches!".PHP_EOL;
 			$returnarray['message'] = "nice";
@@ -36,6 +36,5 @@ public function validateLogin($username,$password){
 }
 	//return false;
 	
-}
 }
 ?>
