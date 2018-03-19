@@ -19,9 +19,9 @@ public function validateLogin($username,$password){
 	$returnarray = array();
 	$query = "select * from student where username = '$un';";
 	$queryResponse = $this->db->query($query);
-	//$response = array();
+	$response = array();
 	While($row = $queryResponse->fetch_assoc()){
-		//$response[] = $row;
+		$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
 		if ($row["password"] == $pw){
 			echo "$username your password matches!".PHP_EOL;
