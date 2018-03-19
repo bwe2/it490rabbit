@@ -20,6 +20,7 @@ public function validateLogin($username,$password){
 	$query = "select * from student where username = '$un'and password = '$pw';";
 	$queryResponse = $this->db->query($query);
 	//$response = array();
+	echo "Validatelogin".PHP_EOL;
 	while($row = $queryResponse->fetch_assoc()){
 		//$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
