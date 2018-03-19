@@ -35,6 +35,7 @@ public function validateLogin($username,$password){
 		return json_encode($returnarray);
 }
 	//return false;
+}
 	
 }
 ?>
