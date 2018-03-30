@@ -21,7 +21,7 @@ public function validateLogin($username,$password){
 	$queryResponse = $this->db->query($query);
 	//$response = array();
 	echo "Validatelogin".PHP_EOL;
-	while($row = $queryResponse->fetch_assoc()){
+	//while($row = $queryResponse->fetch_assoc()){
 		//$response[] = $row;
 		echo "checking password for $username".PHP_EOL;
 		if ($row["password"] == $pw){
@@ -31,12 +31,12 @@ public function validateLogin($username,$password){
 		else {
 		echo "The password for $username does not match!".PHP_EOL;
 			$returnarray['message'] = "notnice";
-			errorSend("DB Connect", 3, "Cannot connect to db server");
+			//errorSend("DB Connect", 3, "Cannot connect to db server");
 		}
 		return json_encode($returnarray);
 }
 	//return false;
-}
+//}
 	
 }
 ?>
