@@ -3,7 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('logRec.inc');
+require_once('log.inc');
 echo "Log Server Started".PHP_EOL;
 
 function requestProcessor($request)
@@ -11,7 +11,7 @@ function requestProcessor($request)
   switch ($request['type']) {
     case "error":
       echo "Log Error". PHP_EOL;
-      logIt($request);
+      writeLog($request);
       break;
   }
 }
