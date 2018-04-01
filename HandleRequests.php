@@ -2,11 +2,12 @@
 require_once('DBFunction.php.inc');
 require_once('path.inc');
 require_once('get_host_info.inc');
+require_once('logSend.inc');
 require_once('rabbitMQLib.inc');
 //session_start();
 function doLogin($username,$password)
 {
-	$sconnect = new ConnectDB("itclass");
+	$sconnect = new ConnectDB("it490");
 	return $sconnect->validateLogin($username,$password);
 }
 $client = new rabbitMQClient("testRabbitMQ.ini","testServer");

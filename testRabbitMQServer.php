@@ -8,7 +8,7 @@ require_once('logSend.inc');
 echo "Server Started".PHP_EOL;
 
 function doLogin($username,$password){
-    $sconnect = new ConnectDB("itclass");
+    $sconnect = new ConnectDB("it490");
 return $sconnect->validateLogin($username,$password);
     return true;
     //return false if not valid
