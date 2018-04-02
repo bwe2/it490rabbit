@@ -5,16 +5,16 @@ class ConnectDB
 private $db;
 
 public function __construct($database){
-	$this->db = new mysqli("localhost","root","georgia","$database");
+	$this->db = new mysqli("localhost","root","georgia1234","$database");
 	if ($this->db->connect_errno !=0)
 	{
-	errorSend("DB Connect", 3,"Cannot connect to db server");	
+	WriteError("DB Connect", 3,"Cannot connect to db server");	
 	echo "Error connecting to database: ".$this->db->connect_error.PHP_EOL;
 		exit();
 	}
 	echo "correctly connected to the database".PHP_EOL;
 
-	errorSend("DB Connect", 3,"Cannot connect to db server");	
+	WriteError("DB Connect", 3,"Cannot connect to db server");	
 }
 public function validateLogin($username,$password){
 	$un = $this->db->real_escape_string($username);
@@ -38,7 +38,7 @@ public function validateLogin($username,$password){
 		else {
 		echo "The password for $username does not match!".PHP_EOL;
 			$returnarray['message'] = "notnice";
-			//errorSend("DB Connect", 3, "Cannot connect to db server");
+			WriteError("DB Connect", 3, "Cannot connect to db server");
 		}
 		return json_encode($returnarray);
 }
