@@ -11,20 +11,22 @@
 <body>
     <script src="FakeR.css"></script>
     <div class="reg-card">
+	<div id="demo">
         <h1>Register</h1><br>
         <form>
             <input type="text" name="First" id="First" placeholder="First Name">
             <input type="text" name="Last" id="Last" placeholder="Last Name">
-            <input type="text" name="user" id="user" placeholder="Username">
+            <input type="text" name="user" id="User" placeholder="Username">
             <input type="password" name="pass" id="Pass" placeholder="Password">
             <input type="text" name="email" id="Email" placeholder="email">
-            <input type="submit" name="reg" class="reg reg-submit" value="Register" onclick="registerPage()">
+            <input type="submit" name="reg" id="reg" class="reg reg-submit" value="Register" onclick="registerPage()">
         </form>
 
         <div class="reg-help">
             <a href="#">Register</a> • <a href="#">Forgot Password</a>
         </div>
     </div>
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function registerPage() {
@@ -36,7 +38,7 @@
             //var message = "type=login&user=" + uname + "&pass=" + pword; 
             sendRegRequest(Fname, Lname, Uname, Pword, Eword);
         }
-        function HandleLoginResponse(response) {
+        function HandleRegResponse(response) {
             var text;
             response = response.replace(/\s/g, "");
             switch (response) {
@@ -58,7 +60,7 @@
             request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             request.onreadystatechange = function() {
                 if ((this.readyState == 4) && (this.status == 200)) {
-                    HandleLoginResponse(this.responseText);
+                    HandleRegResponse(this.responseText);
                 }
             }
             request.send("type=reg&firstname=" + firstname + "lastname=" + lastname + "username=" + username + "&password=" + password "email=" + email);
