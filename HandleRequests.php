@@ -2,7 +2,7 @@
 require_once('DBFunction.php.inc');
 require_once('path.inc');
 require_once('get_host_info.inc');
-require_once('ErrorLog.inc');
+require_once('Logging.inc');
 require_once('rabbitMQLib.inc');
 //session_start();
 function doLogin($username,$password)
