@@ -4,14 +4,13 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('DBFunction.php.inc');
-require_once('ErrorLog.inc');
+require_once('Logging.inc');
 echo "Server Started".PHP_EOL;
 
 function doLogin($username,$password){
     $sconnect = new ConnectDB("it490");
 return $sconnect->validateLogin($username,$password);
     return true;
-    //return false if not valid
 }
 
 function requestProcessor($request){
@@ -45,18 +44,17 @@ function requestProcessor($request){
 
 echo "received request".PHP_EOL;
 	var_dump($request);
-if(!isset($request['data'])){
+if(!
 	return "ERROR: unsupported message type";
 }
-switch ($request['data']){
+switch
 	case "login":
-		$client = new rabbitMQClient("testRabbitMQDB.ini","testServer");
 		$response = $client->send_request($request);
 		return doLogin($request['username'],$request['password']);
 	break;
 	
 	case "register":
-		$client = new rabbitMQClient("testRabbitMQDB.ini","testServer");
+		
                 $response = $client->send_request($request);
 	break;
 	}
@@ -64,7 +62,7 @@ switch ($request['data']){
 return $response;
 
 //}
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+
 //$server->process_requests('requestProcessor');
 exit();
 */
