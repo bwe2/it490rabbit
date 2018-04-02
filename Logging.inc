@@ -20,7 +20,7 @@ function WriteLog($request)
 {
   switch ($request['level']) {
     case 1:
-      $log_file = 'log.txt';
+      $log_file = '/var/www/log.txt';
       break;
     case 2:
       $log_file = 'log.txt';
