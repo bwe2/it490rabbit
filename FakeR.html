@@ -16,8 +16,8 @@
             <input type="text" name="First" id="First" placeholder="First Name">
             <input type="text" name="Last" id="Last" placeholder="Last Name">
             <input type="text" name="user" id="user" placeholder="Username">
-            <input type="password" name="pass" id="pass" placeholder="Password">
-            <input type="text" name="email" id="email" placeholder="email">
+            <input type="password" name="pass" id="Pass" placeholder="Password">
+            <input type="text" name="email" id="Email" placeholder="email">
             <input type="submit" name="reg" class="reg reg-submit" value="Register" onclick="registerPage()">
         </form>
 
@@ -25,6 +25,46 @@
             <a href="#">Register</a> • <a href="#">Forgot Password</a>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function registerPage() {
+            var Fname = document.getElementById("First").value;
+            var Lname = document.getElementById("Last").value;
+            var Uname = document.getElementById("User").value;
+            var Pword = document.getElementById("Pass").value;
+            var Eword = document.getElementById("Email").value;
+            //var message = "type=login&user=" + uname + "&pass=" + pword; 
+            sendRegRequest(Fname, Lname, Uname, Pword, Eword);
+        }
+        function HandleLoginResponse(response) {
+            var text;
+            response = response.replace(/\s/g, "");
+            switch (response) {
+                case "nice":
+                    window.alert("nice");
+			text = "Correct Credentials";
+                    window.location.replace("localhost/cars.html");
+                    break;
+                case "notnice":
+                    text = "Incorrect Credentials";
+                    break;
+                default:
+                    alert(response);
+            }
+        }
+        function sendRegRequest(firstname, lastname, username, password, email) {
+            var request = new XMLHttpRequest();
+            request.open("POST", "HandleRequests.php", true);
+            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.onreadystatechange = function() {
+                if ((this.readyState == 4) && (this.status == 200)) {
+                    HandleLoginResponse(this.responseText);
+                }
+            }
+            request.send("type=reg&firstname=" + firstname + "lastname=" + lastname + "username=" + username + "&password=" + password "email=" + email);
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
 </body>
