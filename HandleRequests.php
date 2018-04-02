@@ -49,8 +49,18 @@ switch ($postRequest["type"]){
 		*/
 	break;
 	case "reg":
-		$password = $postRequest["password"];
-		$email = $postRequest["email"];
+		$request = array();
+		$request['type'] = $postRequest["type"];
+		$request['firstname'] = $postRequest["firstname"];
+		$request['lastname'] = $postRequest["lastname"];
+		$request['username'] = $postRequest["username"];
+		$request['password'] = $postRequest["password"];
+		$request['email'] = $postRequest["email"];
+		$response = $client->send_request($request);
+		$returnarray = json_decode($response, true);
+		$response = $returnarray['message'];
+		//$password = $postRequest["password"];
+		//$email = $postRequest["email"];
 		//$hashedPass = password_hash($password, PASSWORD_DEFAULT);//hash the pass
 		//$postRequest["password"] = $hashedPass;
 		//$response = createClient($postRequest);
